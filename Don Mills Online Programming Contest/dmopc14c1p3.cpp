@@ -5,16 +5,18 @@ typedef pair<int, int> pii;
 
 
 int main() {
-    double initial; cin >> initial;
-    long double sum = 0;
-    int amtStudent = initial;
-    for (int i = 0; i < initial; i++){
-        double b; cin >> b; sum += b;
+    set<int> gt;
+    int gates, plane; cin >> gates >> plane;
+    for (int i = 1; i <= gates; i++){
+        gt.insert(-i);
     }
-    int transfer; cin >> transfer;
-    for (int i = 0; i < transfer; i++){
-        double b; cin >> b; sum += b;
-        amtStudent++;
-        cout << setprecision(5) << sum/amtStudent << endl;
+    for (int i = 0; i < plane; i++){
+        int cur; cin >> cur;
+        if (gt.lower_bound(-cur) == gt.end()){
+            cout << i;
+            exit(0);
+        }
+        gt.erase(gt.lower_bound(-cur));
     }
+    cout << plane;
 }
