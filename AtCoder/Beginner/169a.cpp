@@ -5,6 +5,7 @@ typedef pair<int, int> pii;
 const int inf = 1e6;
 
 int main() {
-
+    int a,b; cin >> a >> b;
+    cout << a*b;
     return 0;
 }
